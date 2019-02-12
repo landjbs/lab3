@@ -1,4 +1,4 @@
-(* 
+(*
                               CS51 Lab 3
                     Polymorphism and record types
  *)
@@ -34,7 +34,7 @@ let add_point_pair (p1 : point_pair) (p2 : point_pair) : point_pair =
   (x1 + x2, y1 + y2) ;;
 
 ........................................................................
-Exercise 1: 
+Exercise 1:
 
 It might be nicer to deconstruct the points in a single match, rather
 than the two separate matches in the two let expressions. Reimplement
@@ -43,22 +43,27 @@ expression.
 ......................................................................*)
 
 let add_point_pair (p1 : point_pair) (p2 : point_pair) : point_pair =
-  failwith "add_point_pair not impemented" ;;
+   match p1, p2 with
+   | (x1, y1), (x2, y2) -> (x1+x2, y1+y2) ;;
 
 (* Analogously, we can define a point by using a record to package up
 the x and y coordinates. *)
 
 type point_recd = {x : int; y : int} ;;
-                   
+
 (*......................................................................
-Exercise 2: 
+Exercise 2:
 
 Implement a function add_point_recd to add two points of type
 point_recd and returning a point _rec as well.
 ......................................................................*)
 
-let add_point_recd =
-  fun _ -> failwith "add_point_recd not implemented" ;;
+let add_point_recd (rec1: point_recd) (rec2: point_recd) : point_recd =
+  match rec1, rec2 with
+  | {x1; y1}, {x2; y2} ->
+  let newX = x1+x2 in
+  let newY = y1+y2 in
+  {x : newX; y : newY}
 
 (* Recall the dot product from Lab 2. The dot product of two points
 (x1, y1) and (x2, y2) is the sum of the products of their x and y
@@ -102,7 +107,7 @@ point_recd to a point_pair.
 
 let point_recd_to_pair =
   fun _ -> failwith "point_recd_to_pair not implemented" ;;
-   
+
 (*======================================================================
 Part 2: A simple database of records
 
@@ -119,7 +124,7 @@ type enrollment = { name : string;
 
 (* Here's an example of a list of enrollments. *)
 
-let college = 
+let college =
   [ { name = "Pat";   id = 603858772; course = "cs51" };
     { name = "Pat";   id = 603858772; course = "expos20" };
     { name = "Kim";   id = 482958285; course = "expos20" };
@@ -139,7 +144,7 @@ Exercise 7: Define a function called transcript that takes an
 enrollment list and returns a list of all the enrollments for a given
 student as specified with his or her id.
 
-For example: 
+For example:
 
     # transcript college 993855891 ;;
     - : enrollment list =
@@ -151,7 +156,7 @@ let transcript (enrollments : enrollment list)
                (student : int)
              : enrollment list =
   failwith "transcript not implemented" ;;
-  
+
 (*......................................................................
 Exercise 8: Define a function called ids that takes an enrollment
 list and returns a list of all the id numbers in that enrollment list,
@@ -166,13 +171,13 @@ For example:
 
 let ids (enrollments: enrollment list) : int list =
   failwith "ids not implemented" ;;
-  
+
 (*......................................................................
 Exercise 9: Define a function called verify that determines whether all
 the entries in an enrollment list for each of the ids appearing in the
 list have the same name associated.
 
-For example: 
+For example:
 # verify college ;;
 - : bool = false
 ......................................................................*)
@@ -209,7 +214,7 @@ Exercise 11: Partitioning a list -- Given a boolean function, say
 
     fun x -> x mod 3 = 0
 
-and a list of elements, say, 
+and a list of elements, say,
 
     [3; 4; 5; 10; 11; 12; 1]
 
@@ -228,7 +233,7 @@ should be as polymorphic as possible?
 
 Now write the function.
 ......................................................................*)
-   
+
 let partition =
   fun _ -> failwith "partition not implemented" ;;
 
