@@ -237,7 +237,9 @@ Now write the function.
 ......................................................................*)
 
 let partition (func : 'a -> bool) (lst : 'a list) : ('a list * 'a list) =
-   (List.filter func lst, List.filter func lst) ;;
+    yesList = List.filter func lst in
+    noList = lst - yesList in
+   (yesList, noList) ;;
 
 (*......................................................................
 Exercise 12: We can think of function application itself as a
