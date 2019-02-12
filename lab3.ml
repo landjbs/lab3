@@ -206,8 +206,10 @@ worry about explicitly handling the anomalous case when the two lists
 are of different lengths.)
 ......................................................................*)
 
-let zip =
-  fun _ -> failwith "zip not implemented" ;;
+let rec zip (x : 'a list) (y : 'a list) : ('a * 'a) list =
+  match x, y with
+  | [],[] -> []
+  | xhead :: xtail, yhead :: ytail  -> (xhead, yhead) :: (zip xtail ytail) ;;
 
 (*......................................................................
 Exercise 11: Partitioning a list -- Given a boolean function, say
@@ -234,8 +236,10 @@ should be as polymorphic as possible?
 Now write the function.
 ......................................................................*)
 
-let partition =
-  fun _ -> failwith "partition not implemented" ;;
+let partition (func : fun) (lst : int list) : (int list * int list) =
+   match lst with
+   | [] -> ([], [])
+   | hd :: tl -> if func hd then ;;
 
 (*......................................................................
 Exercise 12: We can think of function application itself as a
