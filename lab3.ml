@@ -236,10 +236,8 @@ should be as polymorphic as possible?
 Now write the function.
 ......................................................................*)
 
-let partition (func : fun) (lst : int list) : (int list * int list) =
-   match lst with
-   | [] -> ([], [])
-   | hd :: tl -> if func hd then ;;
+let partition (func : 'a -> bool) (lst : 'a list) : ('a list * 'a list) =
+   (List.filter func lst, List.filter func lst) ;;
 
 (*......................................................................
 Exercise 12: We can think of function application itself as a
