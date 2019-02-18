@@ -178,13 +178,13 @@ For example:
 - : bool = false
 ......................................................................*)
 
-let names (enrollement : enrollment list) : int list =
-  List.sort_uniq (compare) (List.map (fun student -> student.name) enrollment) ;;
+let names (enrollments : enrollment list) : string list =
+  List.sort_uniq (compare) (List.map (fun student -> student.name) enrollments) ;;
 
 let verify (enrollments : enrollment list) : bool =
   List.for_all (fun x -> List.length x = 1)
                (List.map
-                 (fun student -> names (trainscript enrollments student))
+                 (fun student -> names (transcript enrollments student))
                  (ids enrollments)) ;;
 
 (*======================================================================
@@ -239,8 +239,7 @@ Now write the function.
 ......................................................................*)
 
 let partition (func : 'a -> bool) (lst : 'a list) : ('a list * 'a list) =
-    let yesList = List.filter func lst in
-   (yesList, List.filter (yesList) lst) ;;
+    (List.filter func lst, List.filter (fun x -> not (func x)) lst) ;;
 
 (*......................................................................
 Exercise 12: We can think of function application itself as a
