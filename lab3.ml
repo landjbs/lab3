@@ -70,7 +70,7 @@ Exercise 3: Write a function dot_product_pair to compute the dot
 product for points encoded as the point_pair type.
 ......................................................................*)
 
-let dot_product_pair (x1,y1 : point_pair) (x2,y : point_pair) : int =
+let dot_product_pair (x1,y1 : point_pair) (x2,y2 : point_pair) : int =
   x1 * x2 + y1 * y2 ;;
 
 (*......................................................................
@@ -79,7 +79,7 @@ product for points encoded as the point_recd type.
 ......................................................................*)
 
 let dot_product_recd (p1 : point_recd) (p2 : point_recd) : int =
-  failwith "dot_product_recd not implemented" ;;
+  p1.x * p2.x + p1.y * p2.y ;;
 
 (* Converting between the pair and record representations of points
 
