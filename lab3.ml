@@ -178,11 +178,14 @@ For example:
 - : bool = false
 ......................................................................*)
 
-let names (enrollements : enrollment list) : int list =
-  List.sort_uniq (compare) (List.map (fun student -> student.name) enrollments) ;;
+let names (enrollement : enrollment list) : int list =
+  List.sort_uniq (compare) (List.map (fun student -> student.name) enrollment) ;;
 
 let verify (enrollments : enrollment list) : bool =
-  failwith "verify not implemented" ;;
+  List.for_all (fun x -> List.length x = 1)
+               (List.map
+                 (fun student -> names (trainscript enrollments student))
+                 (ids enrollments)) ;;
 
 (*======================================================================
 Part 3: Polymorphism
