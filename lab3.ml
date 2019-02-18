@@ -58,12 +58,8 @@ Implement a function add_point_recd to add two points of type
 point_recd and returning a point _rec as well.
 ......................................................................*)
 
-let add_point_recd (rec1: point_recd) (rec2: point_recd) : point_recd =
-  match rec1, rec2 with
-  | {x1; y1}, {x2; y2} ->
-  let newX = x1+x2 in
-  let newY = y1+y2 in
-  {x : newX; y : newY}
+let add_point_recd (p1 : point_recd) (p2 : point_recd) : point_recd =
+  {x = p1.x + p2.x; y = p1.y + p2.y} ;;
 
 (* Recall the dot product from Lab 2. The dot product of two points
 (x1, y1) and (x2, y2) is the sum of the products of their x and y
@@ -75,7 +71,7 @@ product for points encoded as the point_pair type.
 ......................................................................*)
 
 let dot_product_pair (p1 : point_pair) (p2 : point_pair) : int =
-  failwith "dot_product_pair not implemented" ;;
+  x ;;
 
 (*......................................................................
 Exercise 4: Write a function dot_product_recd to compute the dot
