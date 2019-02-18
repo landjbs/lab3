@@ -93,8 +93,8 @@ Exercise 5: Write a function point_pair_to_recd that converts a
 point_pair to a point_recd.
 ......................................................................*)
 
-let point_pair_to_recd =
-  fun _ -> failwith "point_pair_to_recd not implemented" ;;
+let point_pair_to_recd ((x, y) : point_pair) : point_recd =
+  {x = x; y = y} ;;
 
 (*......................................................................
 Exercise 6: Write a function point_recd_to_pair that converts a
