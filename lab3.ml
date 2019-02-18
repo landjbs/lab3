@@ -151,7 +151,7 @@ For example:
 let transcript (enrollments : enrollment list)
                (student : int)
              : enrollment list =
-  failwith "transcript not implemented" ;;
+  List.filter (fun { id; } -> id = student) enrollments ;;
 
 (*......................................................................
 Exercise 8: Define a function called ids that takes an enrollment
