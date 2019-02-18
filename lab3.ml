@@ -166,7 +166,7 @@ For example:
 ......................................................................*)
 
 let ids (enrollments: enrollment list) : int list =
-  failwith "ids not implemented" ;;
+  List.sort_uniq (compare) (List.map (fun student -> student.id) enrollments) ;;
 
 (*......................................................................
 Exercise 9: Define a function called verify that determines whether all
