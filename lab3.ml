@@ -280,5 +280,5 @@ Given the above, what should the type of the function "apply" be?
 Now write the function.
 ......................................................................*)
 
-let apply =
-  fun _ -> failwith "apply not implemented" ;;
+let apply (func : 'arg -> 'result) (arg : 'arg) : 'result =
+  func arg;;
