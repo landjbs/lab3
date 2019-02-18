@@ -94,15 +94,15 @@ point_pair to a point_recd.
 ......................................................................*)
 
 let point_pair_to_recd ((x, y) : point_pair) : point_recd =
-  {x = x; y = y} ;;
+  {x=x; y=y} ;;
 
 (*......................................................................
 Exercise 6: Write a function point_recd_to_pair that converts a
 point_recd to a point_pair.
 ......................................................................*)
 
-let point_recd_to_pair =
-  fun _ -> failwith "point_recd_to_pair not implemented" ;;
+let point_recd_to_pair (recd: point_recd) : point_pair =
+  (recd.x, recd.y);;
 
 (*======================================================================
 Part 2: A simple database of records
