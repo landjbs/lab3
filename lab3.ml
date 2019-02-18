@@ -165,7 +165,7 @@ For example:
     - : int list = [482958285; 603858772; 993855891]
 ......................................................................*)
 
-let ids (enrollments: enrollment list) : int list =
+let ids (enrollments : enrollment list) : int list =
   List.sort_uniq (compare) (List.map (fun student -> student.id) enrollments) ;;
 
 (*......................................................................
@@ -177,6 +177,9 @@ For example:
 # verify college ;;
 - : bool = false
 ......................................................................*)
+
+let names (enrollements : enrollment list) : int list =
+  List.sort_uniq (compare) (List.map (fun student -> student.name) enrollments) ;;
 
 let verify (enrollments : enrollment list) : bool =
   failwith "verify not implemented" ;;
